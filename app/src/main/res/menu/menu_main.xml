@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/refresh"
+        android:title="refresh" />
+    <item
+        android:id="@+id/msg"
+        android:title="messages" />
+    <item
+        android:id="@+id/others"
+        android:title="others" />
+    <item
+        android:id="@+id/dzdevs"
+        android:title="dzdevs" />
+    <item
+        android:id="@+id/grps"
+        android:title="groups" />
+    <item
+        android:id="@+id/active"
+        android:title="active contacts" />
+    <item
+        android:id="@+id/exit"
+        android:title="exit" />
+</menu>

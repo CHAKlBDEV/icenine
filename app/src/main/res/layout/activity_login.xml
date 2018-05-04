@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="1" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/switch1"
+        android:text="2" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/switch2"
+        android:text="3" />
+
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/switch3"
+        android:text="4" />
+
+    <Switch
+        android:id="@+id/switch5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/switch4"
+        android:layout_toRightOf="@+id/switch4"
+        android:text="5" />
+
+    <Switch
+        android:id="@+id/switch6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch5"
+        android:layout_toEndOf="@+id/switch1"
+        android:layout_toRightOf="@+id/switch1"
+        android:text="6" />
+
+    <Switch
+        android:id="@+id/switch7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch6"
+        android:layout_toEndOf="@+id/switch2"
+        android:layout_toRightOf="@+id/switch2"
+        android:text="7" />
+
+    <Switch
+        android:id="@+id/switch8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/switch7"
+        android:layout_toRightOf="@+id/switch7"
+        android:text="8" />
+
+    <Switch
+        android:id="@+id/switch10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch8"
+        android:layout_toEndOf="@+id/switch6"
+        android:layout_toRightOf="@+id/switch6"
+        android:text="9" />
+
+    <Switch
+        android:id="@+id/switch11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/switch12"
+        android:text="8" />
+
+    <Switch
+        android:id="@+id/switch12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/switch11"
+        android:layout_alignStart="@+id/switch11"
+        android:layout_below="@+id/switch13"
+        android:text="9" />
+
+    <Switch
+        android:id="@+id/switch13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/switch4"
+        android:layout_alignBottom="@+id/switch4"
+        android:layout_toEndOf="@+id/switch3"
+        android:layout_toRightOf="@+id/switch3"
+        android:text="7" />
+
+    <Switch
+        android:id="@+id/switch14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch4"
+        android:layout_toEndOf="@+id/switch11"
+        android:layout_toRightOf="@+id/switch11"
+        android:text="6" />
+
+    <Switch
+        android:id="@+id/switch15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch12"
+        android:layout_toEndOf="@+id/switch11"
+        android:layout_toRightOf="@+id/switch11"
+        android:text="5" />
+
+    <Switch
+        android:id="@+id/switch16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch10"
+        android:layout_toEndOf="@+id/switch7"
+        android:layout_toRightOf="@+id/switch7"
+        android:text="4" />
+
+    <Switch
+        android:id="@+id/switch17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch16"
+        android:layout_toEndOf="@+id/switch13"
+        android:layout_toRightOf="@+id/switch13"
+        android:text="3" />
+
+    <Switch
+        android:id="@+id/switch18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch17"
+        android:layout_toEndOf="@+id/switch14"
+        android:layout_toRightOf="@+id/switch14"
+        android:text="2" />
+
+    <Switch
+        android:id="@+id/switch19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch14"
+        android:layout_toEndOf="@+id/switch15"
+        android:layout_toRightOf="@+id/switch15"
+        android:text="1" />
+
+    <Switch
+        android:id="@+id/switch20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/switch8"
+        android:layout_toRightOf="@+id/switch8"
+        android:text="0" />
+
+    <Switch
+        android:id="@+id/switch21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/switch8"
+        android:layout_toEndOf="@+id/switch10"
+        android:layout_toRightOf="@+id/switch10"
+        android:text="0" />
+
+</RelativeLayout>
