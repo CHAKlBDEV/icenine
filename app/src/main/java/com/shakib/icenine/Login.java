@@ -12,9 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Login extends AppCompatActivity {
-    private boolean[] ones = {false, false, false, false, false, false, false, false, false};
-    private boolean[] tens = {false, false, false, false, false, false, false, false, false};
-
+    
     private char ten;
     private char one;
 
