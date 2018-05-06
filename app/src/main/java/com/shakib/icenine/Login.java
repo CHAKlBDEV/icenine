@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -54,6 +55,8 @@ public class Login extends AppCompatActivity {
                 mainAct.putExtra("pin", 101099);
                 startActivity(mainAct);
                 finish();
+            } else {
+                Toast.makeText(this, "Meeow!", Toast.LENGTH_SHORT).show();
             }
         } else {
             mPrefEditor.putString("PASS", pass.getText().toString());
