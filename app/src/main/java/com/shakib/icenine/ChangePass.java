@@ -28,6 +28,7 @@ public class ChangePass extends DialogFragment {
         builder.setMessage("change pass")
                 .setPositiveButton("change", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        mAct.mIsDisplayingADialog = false;
                         mAct.changePass(passET.getText().toString());
                         dismiss();
                     }

@@ -29,7 +29,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //SharedPref
-        mSharedPref = PreferenceManager.geaddtDefaultSharedPreferences(getApplicationContext());
+        mSharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         mPrefEditor = mSharedPref.edit();
 
 
