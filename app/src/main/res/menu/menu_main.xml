@@ -5,6 +5,9 @@
         android:id="@+id/refresh"
         android:title="refresh" />
     <item
+        android:id="@+id/mode"
+        android:title="mode" />
+    <item
         android:id="@+id/msg"
         android:title="messages" />
     <item
