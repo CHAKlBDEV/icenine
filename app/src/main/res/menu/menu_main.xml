@@ -23,6 +23,9 @@
         android:id="@+id/active"
         android:title="active contacts" />
     <item
+        android:id="@+id/changepass"
+        android:title="change pass" />
+    <item
         android:id="@+id/exit"
         android:title="exit" />
 </menu>

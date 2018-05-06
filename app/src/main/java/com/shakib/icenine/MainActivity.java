@@ -4,6 +4,7 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,11 +78,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.active:
                 mWebView.loadUrl(getLink(BUDDYLIST_LINK));
                 break;
+            case R.id.changepass:
+                ChangePass dialogp = new ChangePass();
+                dialogp.mAct = this;
+                dialogp.show(getFragmentManager(), "CHANGEPASS");
+                break;
             case R.id.mode:
                 mIsDisplayingADialog = true;
                 ModePick dialog = new ModePick();
                 dialog.mAct = this;
                 dialog.show(getFragmentManager(), "MODEPICK");
+                break;
             case R.id.exit:
                 exitAct();
                 break;
@@ -94,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //SharedPref
-        mSharedPref = getPreferences(Context.MODE_PRIVATE);
+        mSharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         mPrefEditor = mSharedPref.edit();
 
         //retrieve prefs
@@ -150,6 +157,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         exitAct();
         super.onPause();
+    }
+
+    public void changePass(String p){
+        mPrefEditor.putString("PASS", p);
+        mPrefEditor.apply();
     }
 
     @Override
