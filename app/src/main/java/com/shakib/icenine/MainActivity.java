@@ -147,8 +147,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void exitAct() {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
         finish();
     }
 

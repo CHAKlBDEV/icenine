@@ -1,23 +1,14 @@
 package com.shakib.icenine;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.QuickContactBadge;
-import android.widget.Switch;
 import android.widget.Toast;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Login extends AppCompatActivity {
     SharedPreferences mSharedPref;
@@ -64,7 +55,6 @@ public class Login extends AppCompatActivity {
             Intent mainAct = new Intent(this, MainActivity.class);
             mainAct.putExtra("pin", 101099);
             startActivity(mainAct);
-            finish();
         }
     }
 
