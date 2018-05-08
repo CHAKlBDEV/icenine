@@ -21,7 +21,6 @@ public class ModePick extends DialogFragment {
         builder.setTitle("Pick connection mode")
                 .setItems(mModes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        mAct.mIsDisplayingADialog = false;
                         mAct.setMode(mModesVals[which]);
                         dismiss();
                     }

@@ -1,17 +1,19 @@
 package com.shakib.icenine;
 
-import android.app.DialogFragment;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
     public static String MESSAGES_HOME = "https://%s.facebook.com/messages";
@@ -22,20 +24,23 @@ public class MainActivity extends AppCompatActivity {
     public static String MOBILE_ADVANCED = "m";
     public static String MOBILE_BASIC = "mbasic";
     public static String BASIC_FREE = "0";
+
     WebView mWebView;
     SwipeRefreshLayout mSwipe;
+    ProgressBar mProgressBar;
 
     SharedPreferences mSharedPref;
     SharedPreferences.Editor mPrefEditor;
 
     private String mMode;
-    public boolean mIsDisplayingADialog = false;
 
     public void setMode(String m) {
+        String toLoad = mWebView.getUrl().replaceFirst(mMode, m);
+        Log.i("URL", toLoad);
         mMode = m;
         mPrefEditor.putString("MODE", m);
         mPrefEditor.commit();
-        mWebView.loadUrl(getLink(MESSAGES_HOME));
+        mWebView.loadUrl(toLoad);
     }
 
 
@@ -84,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
                 dialogp.show(getFragmentManager(), "CHANGEPASS");
                 break;
             case R.id.mode:
-                mIsDisplayingADialog = true;
                 ModePick dialog = new ModePick();
                 dialog.mAct = this;
                 dialog.show(getFragmentManager(), "MODEPICK");
@@ -110,6 +114,8 @@ public class MainActivity extends AppCompatActivity {
         //Views
         mWebView = (WebView) findViewById(R.id.webView);
         mSwipe = (SwipeRefreshLayout) findViewById(R.id.swipe);
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.INVISIBLE);
 
         //Browser settings
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -118,15 +124,14 @@ public class MainActivity extends AppCompatActivity {
         mWebView.getSettings().setAllowFileAccess(true);
         //mWebView.getSettings().setAllowFileAccessFromFileURLs(true);
         mWebView.setWebViewClient(new WebViewClient() {
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                String htmlData = "<center><h2 style=\"color: red;\">Error :P</p></center>";
-                mWebView.loadUrl("about:blank");
-                mWebView.loadDataWithBaseURL(null, htmlData, "text/html", "UTF-8", null);
-                mWebView.invalidate();
-            }
 
             public void onPageFinished(WebView view, String url) {
-                //TODO
+                mProgressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                mProgressBar.setVisibility(View.VISIBLE);
             }
         });
         mWebView.loadUrl(getLink("https://%s.facebook.com/messages"));
@@ -142,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void exitAct() {
-        if(mIsDisplayingADialog) return;
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
         finish();
