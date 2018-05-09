@@ -122,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
         mWebView.getSettings().setAppCacheEnabled(true);
         mWebView.getSettings().setAllowContentAccess(true);
         mWebView.getSettings().setAllowFileAccess(true);
-        //mWebView.getSettings().setAllowFileAccessFromFileURLs(true);
         mWebView.setWebViewClient(new WebViewClient() {
 
             public void onPageFinished(WebView view, String url) {
