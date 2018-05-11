@@ -5,6 +5,9 @@
         android:id="@+id/refresh"
         android:title="refresh" />
     <item
+        android:id="@+id/stop"
+        android:title="stop" />
+    <item
         android:id="@+id/mode"
         android:title="mode" />
     <item

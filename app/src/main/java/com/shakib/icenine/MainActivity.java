@@ -93,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
                 dialog.mAct = this;
                 dialog.show(getFragmentManager(), "MODEPICK");
                 break;
+            case R.id.stop:
+                mWebView.stopLoading();
+                break;
             case R.id.exit:
                 exitAct();
                 break;
