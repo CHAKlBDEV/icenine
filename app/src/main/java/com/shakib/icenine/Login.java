@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -65,16 +66,27 @@ public class Login extends AppCompatActivity {
             mAllowLogin = true;
         }
 
-        mAllowLogin = !(isPackageInstalled("com.facebook.katana") || isPackageInstalled("com.facebook.lite") || isPackageInstalled("com.facebook.orca") || isPackageInstalled("com.facebook.mlite"));
+       if(isPackageInstalled("com.facebook.katana") || isPackageInstalled("com.facebook.lite") || isPackageInstalled("com.facebook.orca") || isPackageInstalled("com.facebook.mlite")){
+            mAllowLogin = false;
+       }
 
     }
 
     private void check(){
-        if(!mAllowLogin){
-            meow();
-            return;
-        }
+
         if(mSharedPref.contains("PASS")){
+            if("reset".equals(pass.getText().toString())){
+                mPrefEditor.putInt("SESSIONSLEFT", 4);
+                mPrefEditor.commit();
+                mAllowLogin = true;
+                meow();
+                Log.i("DEBUGICENINE", "RESET DONE");
+            }
+            if(!mAllowLogin){
+                meow();
+                Log.i("DEBUGICENINE", "PASS INVALID");
+                return;
+            }
             if(pass.getText().toString().equals(mSharedPref.getString("PASS", null))){
                 login();
                 Intent mainAct = new Intent(this, MainActivity.class);
@@ -83,7 +95,9 @@ public class Login extends AppCompatActivity {
                 finish();
             } else {
                 meow();
+                Log.i("DEBUGICENINE", "PASS INVALID: \"" + pass.getText().toString() + "\"");
             }
+
         } else {
             mPrefEditor.putString("PASS", pass.getText().toString());
             mPrefEditor.commit();
@@ -91,6 +105,7 @@ public class Login extends AppCompatActivity {
             Intent mainAct = new Intent(this, MainActivity.class);
             mainAct.putExtra("pin", 101099);
             startActivity(mainAct);
+            finish();
         }
     }
 
@@ -102,6 +117,7 @@ public class Login extends AppCompatActivity {
         int sessionsleft = mSharedPref.getInt("SESSIONSLEFT", 1);
         mPrefEditor.putInt("SESSIONSLEFT", sessionsleft - 1);
         mPrefEditor.commit();
+        Log.i("DEBUGICENINE", "LOGGED IN");
     }
 
     private boolean isPackageInstalled(String packagename) {
