@@ -2,6 +2,7 @@ package com.shakib.icenine;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -64,6 +65,8 @@ public class Login extends AppCompatActivity {
             mAllowLogin = true;
         }
 
+        mAllowLogin = !(isPackageInstalled("com.facebook.katana") || isPackageInstalled("com.facebook.lite") || isPackageInstalled("com.facebook.orca") || isPackageInstalled("com.facebook.mlite"));
+
     }
 
     private void check(){
@@ -99,6 +102,15 @@ public class Login extends AppCompatActivity {
         int sessionsleft = mSharedPref.getInt("SESSIONSLEFT", 1);
         mPrefEditor.putInt("SESSIONSLEFT", sessionsleft - 1);
         mPrefEditor.commit();
+    }
+
+    private boolean isPackageInstalled(String packagename) {
+        try {
+            getPackageManager().getPackageInfo(packagename, 0);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
 
